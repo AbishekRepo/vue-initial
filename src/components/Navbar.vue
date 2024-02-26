@@ -21,11 +21,13 @@
 <script>
 export default {
   props: ["pages", "setActiveIndex"],
+
   data() {
     return {
       isDarkMode: false,
     };
   },
+
   methods: {
     toggleDarkMode() {
       this.isDarkMode = !this.isDarkMode;

@@ -13,7 +13,7 @@
       <input type="text" id="url" v-model="url" /><br />
       <label for="isPublished">Published:</label>
       <input type="checkbox" id="isPublished" v-model="isPublished" /><br />
-      <button type="submit">Submit</button>
+      <button type="submit" :disabled="isFormInValid">Submit</button>
     </form>
   </div>
 </template>
@@ -26,6 +26,15 @@ export default {
       required: true,
     },
   },
+
+  computed: {
+    isFormInValid() {
+      if (!this.pageTitle || !this.content) {
+        return true;
+      }
+    },
+  },
+
   data() {
     return {
       formTitle: "Page Creator",
@@ -37,6 +46,7 @@ export default {
       isPublished: true,
     };
   },
+
   methods: {
     handleSubmit() {
       const formData = {
@@ -52,6 +62,7 @@ export default {
         clearForm();
       }
     },
+
     clearForm() {
       this.pageTitle = "";
       this.content = "";

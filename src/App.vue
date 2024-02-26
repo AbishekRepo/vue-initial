@@ -45,6 +45,7 @@ export default {
     setActiveIndex(index) {
       this.activePageIndex = index;
     },
+
     formSubmitted(formObject) {
       this.pages.push(formObject);
     },
